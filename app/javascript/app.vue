@@ -1,6 +1,8 @@
 <template>
   <v-app id="app">
-    <p>{{ message }}</p>
+    <Header/>
+
+    <p class="page-title">{{ message }}</p>
     <Mountain/>
 
     <v-alert
@@ -15,10 +17,12 @@
 
 <script>
 import Mountain from "./components/Mountain"
+import Header from "./components/Header"
 
 export default {
   components: {
-    Mountain
+    Mountain,
+    Header
   },
   data: function () {
     return {
@@ -32,5 +36,8 @@ export default {
 p {
   font-size: 2em;
   text-align: center;
+}
+.page-title{
+  margin-top: 20px;
 }
 </style>
