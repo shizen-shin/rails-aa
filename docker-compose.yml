@@ -1,6 +1,6 @@
 version: '3'
 services:
-  db:
+  aa-db:
     image: postgres
     container_name: rails-aa-db
     volumes:
@@ -8,13 +8,13 @@ services:
     environment:
       POSTGRES_HOST_AUTH_METHOD: 'trust'
 
-  web:
+  aa-web:
     build: .
     container_name: rails-aa-web
     command: bash -c "rm -f tmp/pids/server.pid && rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/rails-aa
     ports:
-      - "3000:3000"
+      - "3001:3000"
     depends_on:
-      - db
+      - aa-db
