@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  pj_name: MyString
+  price: 1
+  order_date: 2021-07-17
+
+two:
+  client: two
+  pj_name: MyString
+  price: 1
+  order_date: 2021-07-17
