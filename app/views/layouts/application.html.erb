@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsVue</title>
+    <% if !(yield(:title)==="")  %>
+      <title>RailsVue | <%= yield(:title) %></title>
+    <% else %>
+      <title>RailsVue</title>
+    <% end %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <%# SEO meta%>
+    <% if !(yield(:keywords)==="") %>
+      <meta name="keywords" content= <%= yield(:keywords) %> >
+    <% end %>
+    <% if !(yield(:description)==="") %>
+      <meta name="description" content= <%= yield(:description) %> >
+    <% end %>
+    <% if !(yield(:robots)==="") %>
+      <meta name="robots" content= <%= yield(:robots) %> >
+    <% end %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
