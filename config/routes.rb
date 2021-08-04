@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api, {format: 'json'} do
     namespace :pj1 do
-      resources :client, only: [:index, :show]
+      resources :clients, only: [:index, :show]
     end
   end
 

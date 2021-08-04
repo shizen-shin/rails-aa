@@ -1,15 +1,15 @@
-class Api::Pj1::ClientController < ApiController
+class Api::Pj1::ClientsController < ApiController
   before_action :set_client, only: [:show]
 
-  # ActiveRecordのレコードが見つからなければ404 not foundを応答する
+  #例外処理
   rescue_from ActiveRecord::RecordNotFound do |exception|
     render json: { error: '404 not found' }, status: 404
   end
 
   #一覧
   def index
-    clients = Client.all
-    render json: clients
+    @clients = Client.all
+    render json: @clients
   end
 
   #詳細
