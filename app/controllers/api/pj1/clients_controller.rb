@@ -8,7 +8,8 @@ class Api::Pj1::ClientsController < ApiController
 
   #一覧
   def index
-    @clients = Client.all
+    # @clients = Client.all
+    @clients = Client.select(:client_name, :pj_name, :status, :id)
     render json: @clients
   end
 

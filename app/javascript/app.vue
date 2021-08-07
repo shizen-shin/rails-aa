@@ -1,6 +1,19 @@
 <template>
   <div id="app">
-    {{ clients }}
+    <table>
+      <tbody>
+        <tr>
+          <th>Project Name</th>
+          <th>Client Nmae</th>
+          <th>Status</th>
+        </tr>
+        <tr v-for="(client, index) in clients" :key="index">
+          <td>{{ client.client_name }}</td>
+          <td>{{ client.pj_name }}</td>
+          <td>{{ client.status }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -16,7 +29,7 @@ export default {
   mounted(){
     axios
       .get('/api/pj1/clients')
-      .then(res => (this.clients = res))
+      .then(response => (this.clients = response.data))
   }
 }
 </script>
