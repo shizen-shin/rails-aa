@@ -11,6 +11,7 @@ import VueRouter from 'vue-router'
 import Top from './components/Top'
 import Client from './components/clients/Client'
 import Clients from './components/clients/Clients'
+import ClientNew from './components/clients/ClientNew'
 
 Vue.use(VueRouter)
 
@@ -27,9 +28,14 @@ const router = new VueRouter({
       name: 'clients',
     },
     {
-      path: '/clients/:id',
+      path: '/clients/:id(\\d+)',
       component: Client,
       name: 'client',
+    },
+    {
+      path: '/clients/new',
+      component: ClientNew,
+      name: 'clientNew'
     }
   ]
 })
