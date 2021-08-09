@@ -1,42 +1,43 @@
 <template>
-  <div id="app">
-    <table>
-      <tbody>
-        <tr>
-          <th>Project Name</th>
-          <th>Client Nmae</th>
-          <th>Status</th>
-        </tr>
-        <tr v-for="(client, index) in clients" :key="index">
-          <td>{{ client.client_name }}</td>
-          <td>{{ client.pj_name }}</td>
-          <td>{{ client.status }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+import Top from './components/Top'
+import Client from './components/clients/Client'
+import Clients from './components/clients/Clients'
+
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  routes: [
+    {
+      path: '/',
+      component: Top,
+      name: 'top',
+    },
+    {
+      path: '/clients',
+      component: Clients,
+      name: 'clients',
+    },
+    {
+      path: '/clients/:id',
+      component: Client,
+      name: 'client',
+    }
+  ]
+})
 
 export default {
-  data(){
-    return{
-      clients: []
-    }
-  },
-  mounted(){
-    axios
-      .get('/api/pj1/clients')
-      .then(response => (this.clients = response.data))
-  }
+  router
 }
 </script>
 
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
+<style lang="scss" scoped>
 </style>
