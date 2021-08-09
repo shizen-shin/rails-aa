@@ -12,6 +12,7 @@ import Top from './components/Top'
 import Client from './components/clients/Client'
 import Clients from './components/clients/Clients'
 import ClientNew from './components/clients/ClientNew'
+import ClientEdit from './components/clients/ClientEdit'
 
 Vue.use(VueRouter)
 
@@ -36,7 +37,12 @@ const router = new VueRouter({
       path: '/clients/new',
       component: ClientNew,
       name: 'clientNew'
-    }
+    },
+    {
+      path: '/clients/edit/:id(\\d+)',
+      component: ClientEdit,
+      name: 'clientEdit',
+    },
   ]
 })
 

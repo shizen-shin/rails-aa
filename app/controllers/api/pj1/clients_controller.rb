@@ -1,5 +1,5 @@
 class Api::Pj1::ClientsController < ApiController
-  before_action :set_client, only: [:show]
+  before_action :set_client, only: [:show, :update]
 
   #例外処理
   rescue_from Exception, with: :render_status_500
@@ -30,7 +30,7 @@ class Api::Pj1::ClientsController < ApiController
 
   #編集
   def update
-    if @client.updat(client_params)
+    if @client.update(client_params)
       head :no_content
     else
       render json: { errors: @client.errors.full_messages }, status: :unprocessable_entity
